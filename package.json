@@ -1,0 +1,13 @@
+{
+  "name": "2023-tp2-ej01",
+  "version": "1.0.0",
+  "description": "Primer Ejercicio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "watch": "nodemon index.js"
+  },
+  "author": "Aldo Sebastián López",
+  "license": "ISC"
+}
