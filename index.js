@@ -19,7 +19,7 @@ console.log(contenidoSinSaltosDeLineaA)
 
 //-----------------------------------------------------------------------------------------------------
 
-console.log('--- EJ 1.2 CHEQUEAR ARCHIVO Y ESCRIBIR---')
+console.log('--- EJ 1.2 CHEQUEAR ARCHIVO Y ESCRIBIR SEGUN FLAG ---')
 // Recibe una ruta, un texto, y un flag, y graba ese texto en un archivo en la ruta dada. Si el
 // directorio es válido pero el archivo no existe, decide que hacer según el flag:
 // ● Con el flag en true, crea el archivo y lo escribe.
@@ -75,7 +75,42 @@ console.log("Test 3: Ruta invalida. Se debe crear.txt")
 readWriteSegunFlag("rutaInvalidaCrear.txt", escribirDatos, flagPositivo)
 }
 
-
 readWriteFsSync()
+
+//-----------------------------------------------------------------------------------------------------
+
+console.log('--- EJ 1.3 transformarStringEnArrayDeNumeros ---')
+/*Recibe un texto y una secuencia de caracteres que usará como separador. Devuelve un array
+con todos los números producto de partir el texto cada vez que aparezca la secuencia
+separadora. En el caso de que alguna de las partes no sea numérica, no se incluirá en el
+resultado, pero no debe lanzar ningún error.
+Ejemplo
+Input: texto = ‘123 | 456 | 789 | 1bc | 10’ , separador = ‘ | ’
+Output: [123, 456, 789, 10]
+*/
+
+let cadenaDeTextoTest1 = '123 | 456 | 789 | 1bc | 10'
+
+let separador = ' | '
+
+
+function transformarStringEnArrayDeNumeros(datosString, separador){
+    // uso split con el argumento del separador para sacar los " | " y crear un array con los valores. 
+    let stringSinSeparador = datosString.split(separador)  
+    let arrayNumeros = []
+
+    for (let i = 0; i < stringSinSeparador.length; i++){
+        let supuestoNumero = stringSinSeparador[i]
+        if (!isNaN(supuestoNumero)){
+            arrayNumeros.push(parseFloat(supuestoNumero)) // el parseFloat o parseInt convierte el string a numero.
+        }
+    }
+    return arrayNumeros
+}
+
+console.log("Test 1: Archivo Base a numero.")
+console.log(`El string base es : ${cadenaDeTextoTest1}`)
+console.log("Resultado de la conversion:")
+console.log(transformarStringEnArrayDeNumeros(cadenaDeTextoTest1, separador))
 
 
