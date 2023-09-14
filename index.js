@@ -177,5 +177,33 @@ console.log(`El array N° 1 es: ${[1,4,6,9,9]} y el N° 2 es: ${[9,4,1,5,3]}`)
 console.log("Resultado de la conversion:")
 console.log(combinarDosArraysNumericos([1,4,6,9,9], [9,4,1,5,3]))
 
+console.log('--- EJ 1.6 combinarNArrays ---')
+
+/*
+combinarNArrays
+Igual que la función anterior, solo que ésta recibe un array de arrays de números ordenados en
+forma ascendente y sin repetidos, y devuelve un nuevo array, con la combinación de todos los
+números de todos los arrays recibidos, también ordenados en forma ascendente, y también sin
+repetidos.
+Ejemplo
+Input: arrays = [[1, 10], [2, 3, 15, 16], [4], [6, 7, 13]]
+Output: [1, 2, 3, 4, 6, 7, 10, 13, 15, 16]
+*/
+
+let arrayN = [[1, 10], [2, 3, 15, 16], [4], [6, 7, 13]]
+
+function combinarNArrays(arrayN){
+    let arrayConvertidoFlat = arrayN.flat(Infinity) //Aca es un solo array con todos los numeros repetidos.
+    let miSet = new Set (arrayConvertidoFlat) //creo un objeto SET
+    let arrayMiSet = ([...miSet]); //convierto el set a un array
+    arrayMiSet.sort((a,b) => {return (a-b)}) //lo ordeno de manera ascendente
+    return arrayMiSet
+
+}
+
+console.log("Test 1: Array de numeros que contiene varios arrays.")
+console.log(`El array es: ${arrayN}`)
+console.log("Resultado de la conversion:")
+console.log(combinarNArrays(arrayN))
 
 
