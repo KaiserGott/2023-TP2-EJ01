@@ -133,7 +133,6 @@ function transformarArrayDeNumerosEnString(datosNumeros, separador){
 
 let inputArrayNumerosTest2 = [123,123,456,456,789,10,10]
 
-
 console.log("Test 1: Archivo Base de array de numeros a Cadena String.")
 console.log(`El array de numeros base es : ${inputArrayNumeros}`)
 console.log("Resultado de la conversion:")
@@ -142,4 +141,41 @@ console.log("Test 2: Otro array de numeros a Cadena String.")
 console.log(`El array de numeros test2 es : ${inputArrayNumerosTest2}`)
 console.log("Resultado de la conversion:")
 console.log(transformarArrayDeNumerosEnString(inputArrayNumerosTest2, separadorNumeros))
+
+console.log('--- EJ 1.5 combinarDosArraysNumericos ---')
+
+/*Recibe dos arrays, ambos con datos de tipo numérico, ambos ordenados en forma ascendente,
+y sin repetidos dentro de cada archivo (puede haber repetidos entre un archivo y otro).
+Devuelve un nuevo array, que contenga todos los datos de ambos arrays, también ordenados
+en forma ascendente, y también sin repetidos.
+Ejemplo
+Input: array1 = [1, 5, 10] , array2 = [2, 3, 8, 11]
+Output: [1, 2, 3, 5, 8, 10, 11]
+Observación
+Si se te ocurrió una solución que requiere poder ordenar un array, pensá en otra forma de
+hacerlo.
+*/
+
+let arrayNumeros1 = [1, 5, 10]
+let arrayNumeros2 = [2, 3, 8, 11]
+
+function combinarDosArraysNumericos(array1,array2){
+    let miSet = new Set (array1.concat(array2)) //creo un objeto SET
+    let arrayMiSet = ([...miSet]); //convierto el set a un array
+    arrayMiSet.sort((a,b) => {return (a-b)}) //lo ordeno de manera ascendente
+    return arrayMiSet
+
+}
+
+
+console.log("Test 1: Arrays Base.")
+console.log(`El array N° 1 es: ${arrayNumeros1} y el N° 2 es: ${arrayNumeros2}`)
+console.log("Resultado de la conversion:")
+console.log(combinarDosArraysNumericos(arrayNumeros1, arrayNumeros2))
+console.log("Test 2: 2 Arrays con numeros repetidos.")
+console.log(`El array N° 1 es: ${[1,4,6,9,9]} y el N° 2 es: ${[9,4,1,5,3]}`)
+console.log("Resultado de la conversion:")
+console.log(combinarDosArraysNumericos([1,4,6,9,9], [9,4,1,5,3]))
+
+
 
