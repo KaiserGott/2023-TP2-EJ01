@@ -89,9 +89,9 @@ Input: texto = ‘123 | 456 | 789 | 1bc | 10’ , separador = ‘ | ’
 Output: [123, 456, 789, 10]
 */
 
-let cadenaDeTextoTest1 = '123 | 456 | 789 | 1bc | 10'
+let inputcadenaDeTextoTest1 = '123 | 456 | 789 | 1bc | 10'
 
-let separador = ' | '
+let separadorTexto = ' | '
 
 
 function transformarStringEnArrayDeNumeros(datosString, separador){
@@ -109,8 +109,37 @@ function transformarStringEnArrayDeNumeros(datosString, separador){
 }
 
 console.log("Test 1: Archivo Base a numero.")
-console.log(`El string base es : ${cadenaDeTextoTest1}`)
+console.log(`El string base es : ${inputcadenaDeTextoTest1}`)
 console.log("Resultado de la conversion:")
-console.log(transformarStringEnArrayDeNumeros(cadenaDeTextoTest1, separador))
+console.log(transformarStringEnArrayDeNumeros(inputcadenaDeTextoTest1, separadorTexto))
 
+console.log('--- EJ 1.4 transformarArrayDeNumerosAUnSoloString ---')
+/*Recibe un array con strings, y una secuencia de caracteres para usar como separador.
+Devuelve un único string que es la unión de todos los strings del array, intercalando la
+secuencia separadora entre cada uno.
+Ejemplo
+Input: array = [123, 456, 789, 10] , separador = ‘,’
+Output: ‘123,456,789,10’
+*/
+
+let inputArrayNumeros = [123, 456, 789, 10]
+
+let separadorNumeros = ','
+
+function transformarArrayDeNumerosEnString(datosNumeros, separador){
+    let arrayString = datosNumeros.sort(function (a,b) {return (a-b)})
+    return arrayString.join(separador)
+   }   
+
+let inputArrayNumerosTest2 = [123,123,456,456,789,10,10]
+
+
+console.log("Test 1: Archivo Base de array de numeros a Cadena String.")
+console.log(`El array de numeros base es : ${inputArrayNumeros}`)
+console.log("Resultado de la conversion:")
+console.log(transformarArrayDeNumerosEnString(inputArrayNumeros, separadorNumeros))
+console.log("Test 2: Otro array de numeros a Cadena String.")
+console.log(`El array de numeros test2 es : ${inputArrayNumerosTest2}`)
+console.log("Resultado de la conversion:")
+console.log(transformarArrayDeNumerosEnString(inputArrayNumerosTest2, separadorNumeros))
 
